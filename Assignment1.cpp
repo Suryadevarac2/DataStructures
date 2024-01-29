@@ -1,38 +1,22 @@
 /*Each Step of the bubble sort process for the array[5, 2, 8, 1, 3]:
+
 1. Easy: Understanding Bubble Sort
 
-Pass 1 :
+   Step1. We compare adjacent elements, starting from the first pair.
+   Comparing 5 and 2, we find that 5 is greater than 2, so we swap them to get [2, 5, 8, 1, 3]. 
+   Now we compare 5 and 8, requiring no swap. 
+   Now comparing 8 and 1, we find that 8 is greater than 1, after swapping to get [2, 5, 1, 8, 3].
+   Now 8 and 3, we swap to get [2, 5, 1, 3, 8]. After Pass 1 the array becomes [2, 5, 1, 3, 8].
 
-    Start with the array[5, 2, 8, 1, 3].
-    Compare adjacent elements :
-Compare 5 and 2 : Since 5 > 2, swap them : [2, 5, 8, 1, 3] .
-Compare 5 and 8 : No swap needed.
-Compare 8 and 1 : Since 8 > 1, swap them : [2, 5, 1, 8, 3] .
-Compare 8 and 3 : Since 8 > 3, swap them : [2, 5, 1, 3, 8] .
-After Pass 1 : [2, 5, 1, 3, 8]
+ Step 2, we repeat the process for the remaining unsorted elements. 
+ Comparing 2 and 5, no swap is needed. However, comparing 5 and 1, we swap to get [2, 1, 5, 3, 8].
+ Then, comparing 5 and 3, we swap again to get [2, 1, 3, 5, 8]. After Pass 2, the array becomes [2, 1, 3, 5, 8].
 
-Pass 2 :
+ Step 3: we compare 2 and 1, requiring a swap to get [1, 2, 3, 5, 8].
+ After Pass 3, the array becomes [1, 2, 3, 5, 8].
 
-    Repeat the process for the remaining unsorted elements :
-Compare 2 and 5 : No swap needed.
-Compare 5 and 1 : Since 5 > 1, swap them : [2, 1, 5, 3, 8] .
-Compare 5 and 3 : Since 5 > 3, swap them : [2, 1, 3, 5, 8] .
-After Pass 2 : [2, 1, 3, 5, 8]
-
-Pass 3 :
-
-    Repeat the process :
-Compare 2 and 1 : Since 2 > 1, swap them : [1, 2, 3, 5, 8] .
-After Pass 3 : [1, 2, 3, 5, 8]
-
-Pass 4 :
-
-    No swaps needed as the array is already sorted.
-    After Pass 4 : [1, 2, 3, 5, 8]
-
-    The sorted array is[1, 2, 3, 5, 8].
-
-    */
+So, in total the bubble sort algorithm performs 10 comparisons and 6 swaps to sort the given array
+ */
 
 /*
 Tracing the bubble sort algorithm step by step for the unsorted array[7, 4, 2, 9, 1]:
@@ -70,12 +54,7 @@ Pass 4 :
 Compare 2 and 1 : Since 2 > 1, swap them : [1, 2, 4, 7, 9] .
 After Pass 4 : [1, 2, 4, 7, 9]
 
-Pass 5 :
-
-    No swaps needed as the array is already sorted.
-    After Pass 5 : [1, 2, 4, 7, 9]
-
-    The sorted array is[1, 2, 4, 7, 9]
+The sorted array is[1, 2, 4, 7, 9]
 
 */
 
@@ -131,7 +110,8 @@ int main() {
 Optimization:
 ------------ -
 
-The key idea is to keep track of whether any swaps are made in each pass.If no swaps are made in a pass, it means that the array is already sorted up to that point, and we can terminate the sorting process early.
+The key idea is to keep track of whether any swaps are made in each pass.If no swaps are made in a pass, 
+it means that the array is already sorted up to that point, and we can terminate the sorting process early.
 
 
 
@@ -197,7 +177,8 @@ Simple implementation : Bubble sort is easy to understand and implement.
 No additional space : It operates in - place, requiring only a constant amount of extra memory.
 
 Disadvantages :
-    Inefficiency : Bubble sort has poor time complexity, making it inefficient for large datasets, especially when compared to other sorting algorithms like quicksort and mergesort.
+    Inefficiency : Bubble sort has poor time complexity, making it inefficient for large datasets, especially when compared to other sorting 
+    algorithms like quicksort and mergesort.
     O(n ^ 2) time complexity : Bubble sort has a time complexity of O(n ^ 2) in the worst case, which can be prohibitive for large datasets.
 
     Scenarios for use:
@@ -213,7 +194,8 @@ Disadvantages :
 
             Disadvantages :
             Not stable : Quicksort is not stable, meaning it may change the relative order of equal elements.
-            Worst - case time complexity : While its average - case time complexity is good, the worst - case time complexity of quicksort can be O(n ^ 2), though this is rare with good pivot selection strategies.
+            Worst - case time complexity : While its average - case time complexity is good, the worst - case time complexity of quicksort 
+            can be O(n ^ 2), though this is rare with good pivot selection strategies.
 
 
             Scenarios for use:
@@ -225,12 +207,14 @@ Disadvantages :
 
                     Advantages :
                     Stable : Mergesort is a stable sorting algorithm, meaning it preserves the relative order of equal elements.
-                    Predictable performance : It has a consistent time complexity of O(n log n) regardless of the input data, making it suitable for scenarios where predictable performance is important.
+                    Predictable performance : It has a consistent time complexity of O(n log n) regardless of the input data, making it suitable 
+                    for scenarios where predictable performance is important.
                     Parallelizable : Mergesort can be easily parallelized, allowing for efficient sorting on multi - core or distributed systems.
 
 
                     Disadvantages :
-                    Additional space : Mergesort requires additional memory proportional to the size of the input array, making it less suitable for memory - constrained environments.
+                    Additional space : Mergesort requires additional memory proportional to the size of the input array, making it less suitable for
+                    memory - constrained environments.
                     Scenarios for use :
                     Mergesort is well - suited for scenarios where stable sorting and consistent performance are required.
                     It is often used in external sorting applications, such as sorting large files that do not fit into memory.
